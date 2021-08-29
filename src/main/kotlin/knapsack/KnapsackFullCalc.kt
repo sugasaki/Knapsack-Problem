@@ -4,7 +4,7 @@ import max
 
 /**
  * ナップサック問題
- * 全探索、２次元配列を使うパターン
+ * 全探索パターン
  */
 object KnapsackFullCalc {
 
