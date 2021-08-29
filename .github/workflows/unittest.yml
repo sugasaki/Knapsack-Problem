@@ -33,11 +33,29 @@ jobs:
         run: ./gradlew build jacocoTestReport
       - name: Test with Gradle
         run: ./gradlew test
-      # codecov
-      - name: upload coverage
-        uses: codecov/codecov-action@v1
+      # codecov - https://github.com/codecov/codecov-action#example-workflowyml-with-codecov-action
+      - name: Setup Python
+        uses: actions/setup-python@master
+        with:
+          python-version: 3.7
+      - name: Generate coverage report
+        run: |
+          pip install pytest
+          pip install pytest-cov
+          pytest --cov=./ --cov-report=xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage/reports/
+          env_vars: OS,PYTHON
+          fail_ci_if_error: true
+          files: ./coverage1.xml,./coverage2.xml
+          flags: unittests
+          name: codecov-umbrella
+          path_to_write_report: ./coverage/codecov_report.txt
+          verbose: true
+
       # "build/reports/jacoco"をartifactに追加
       - name: Archive coverage results
         uses: actions/upload-artifact@v2
