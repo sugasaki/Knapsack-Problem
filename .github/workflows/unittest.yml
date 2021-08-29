@@ -24,6 +24,8 @@ jobs:
             ${{ runner.os }}-gradle-
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Test with Gradle
+        run: ./gradlew test
       - name: Cleanup Gradle Cache
         # GitHub Actions でキャッシュされないように Gradle キャッシュからいくつかのファイルを削除
         # これらのファイルをGitHub Actionsのキャッシュからリストアすると、将来のビルドで問題が生じるかもしれない。
