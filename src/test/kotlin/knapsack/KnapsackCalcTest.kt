@@ -13,7 +13,7 @@ internal class KnapsackCalcTest {
         val values = listOf(2, 3, 2, 3, 6)
         val weightMax = 10
 
-        val expected = 15 // (4,3) (1,2) (2,3) (3,6) を選ぶのが最大効率
+        val expected = 14 // (4,3) (1,2) (2,3) (3,6) を選ぶのが最大効率
         val actual = target.prioritizeHighValue(weights, values, weightMax)
         Assertions.assertEquals(expected, actual)
     }
