@@ -4,7 +4,7 @@ import max
 import toIntNullable
 
 // ナップサック問題
-class KnapsackCalc {
+object KnapsackCalc {
 
     /**
      * 全探索、２次元配列を使うパターン

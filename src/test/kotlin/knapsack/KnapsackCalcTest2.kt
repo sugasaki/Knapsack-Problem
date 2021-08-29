@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 internal class KnapsackCalcTest2 {
 
-    val target = KnapsackCalc()
+    private val target = KnapsackCalc
 
     @Test
     fun test() {
