@@ -2,7 +2,10 @@ package knapsack
 
 import max
 
-// ナップサック問題
+/**
+ * ナップサック問題
+ * 全探索、２次元配列を使うパターン
+ */
 object KnapsackFullCalc {
 
     /**

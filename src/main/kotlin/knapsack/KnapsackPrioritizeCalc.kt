@@ -3,13 +3,17 @@ package knapsack
 import max
 import toIntNullable
 
-// ナップサック問題
+/**
+ * ナップサック問題
+ * 価値が大きいもの優先： ある重さにおける最大の価値を優先
+ * 順番に埋めていく
+ * メモリを省エネするためにHashを使っています
+ */
 object KnapsackPrioritizeCalc {
 
     /**
      * 価値が大きいもの優先： ある重さにおける最大の価値を優先
-     * 順番に埋めていく
-     * メモリを省エネするためにHashを使っています
+     * HashTableを使ってメモリを節約するバージョン
      */
     fun calc(weights: List<Int>, values: List<Int>, weightMax: Int): Int {
         val dp = mutableMapOf<Int, Int>()
