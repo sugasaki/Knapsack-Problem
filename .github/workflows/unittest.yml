@@ -1,4 +1,7 @@
-name: Java CI
+name: Kotlin CI
+
+# ↓を参考にAction作りました
+# https://docs.github.com/ja/actions/guides/building-and-testing-java-with-gradle
 
 on: [push]
 
@@ -27,6 +30,7 @@ jobs:
       - name: Test with Gradle
         run: ./gradlew test
       - name: Cleanup Gradle Cache
+        # https://docs.github.com/ja/actions/guides/building-and-testing-java-with-gradle
         # GitHub Actions でキャッシュされないように Gradle キャッシュからいくつかのファイルを削除
         # これらのファイルをGitHub Actionsのキャッシュからリストアすると、将来のビルドで問題が生じるかもしれない。
         run: |
