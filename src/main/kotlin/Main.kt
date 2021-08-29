@@ -1,15 +1,14 @@
 import knapsack.KnapsackCalc
+import knapsack.TestHelper
+import knapsack.TestHelper.weightMax1
+import knapsack.TestHelper.weightMax5
 
 fun main() {
     println("Hello Knapsack Problem!")
 
-    val weights = listOf(3, 4, 1, 2, 3)
-    val values = listOf(2, 3, 2, 3, 6)
-    val weightMax = 10
-
-    var actual = KnapsackCalc.fullExploration(weights, values, weightMax)
+    var actual = KnapsackCalc.fullExploration(TestHelper.weights1, TestHelper.values1, weightMax1)
     println("Full Exploration: $actual")
 
-    actual = KnapsackCalc.prioritizeHighValue(weights, values, weightMax)
+    actual = KnapsackCalc.fullExploration(TestHelper.weights5, TestHelper.values5, weightMax5)
     println("Prioritize HighValue: $actual")
 }
