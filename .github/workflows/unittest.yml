@@ -26,13 +26,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build jacocoTestReport
       - name: Test with Gradle
         run: ./gradlew test
+      # codecov
       - name: upload coverage
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+      # "build/reports/jacoco"をartifactに追加
+      - name: Archive coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: build/reports/jacoco/test/html
+      # Cleanup
       - name: Cleanup Gradle Cache
         # https://docs.github.com/ja/actions/guides/building-and-testing-java-with-gradle
         # GitHub Actions でキャッシュされないように Gradle キャッシュからいくつかのファイルを削除
