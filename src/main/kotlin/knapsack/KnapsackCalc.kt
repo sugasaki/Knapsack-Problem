@@ -1,8 +1,9 @@
 package knapsack
 
-import java.lang.Integer.max
+import max
+import toIntNullable
 
-//
+// ナップサック問題
 class KnapsackCalc {
 
     /**
@@ -82,12 +83,4 @@ class KnapsackCalc {
         }
         return dp[weightMax].toIntNullable()
     }
-}
-
-fun max(a: Int?, b: Int?): Int {
-    return max(a.toIntNullable(), b.toIntNullable())
-}
-
-fun Int?.toIntNullable(): Int {
-    return this ?: 0
 }
